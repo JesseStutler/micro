@@ -1,7 +1,7 @@
 package controllers
 
 import (
-	"github.com/mmorejon/cinema/users/models"
+	"github.com/JesseStutler/micro/users/models"
 )
 
 type (

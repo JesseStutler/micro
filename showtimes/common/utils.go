@@ -55,36 +55,36 @@ func initConfig() {
 		log.Fatalf("[logAppConfig]: %s\n", err)
 	}
 
-// Load configuration from environment values if exists
-loadConfigFromEnvironment(&AppConfig)
+	// Load configuration from environment values if exists
+	loadConfigFromEnvironment(&AppConfig)
 }
 
 // Load configuration from environment
-func loadConfigFromEnvironment(appConfig *configuration)  {
+func loadConfigFromEnvironment(appConfig *configuration) {
 	server, ok := os.LookupEnv("CINEMA_SHOWTIMES")
 	if ok {
-		appConfig.Server = server	
+		appConfig.Server = server
 		log.Printf("[INFO]: Server information loaded from env.")
 	}
-	
+
 	mongodbHost, ok := os.LookupEnv("MONGODB_HOST")
 	if ok {
-		appConfig.MongoDBHost = mongodbHost	
+		appConfig.MongoDBHost = mongodbHost
 		log.Printf("[INFO]: MongoDB host information loaded from env.")
 	}
-	
+
 	mongodbUser, ok := os.LookupEnv("MONGODB_USER")
 	if ok {
 		appConfig.DBUser = mongodbUser
 		log.Printf("[INFO]: MongoDB user information loaded from env.")
 	}
-	
+
 	mongodbPwd, ok := os.LookupEnv("MONGODB_PWD")
 	if ok {
 		appConfig.DBPwd = mongodbPwd
 		log.Printf("[INFO]: MongoDB password information loaded from env.")
 	}
-	
+
 	database, ok := os.LookupEnv("MONGODB_DATABASE")
 	if ok {
 		appConfig.Database = database

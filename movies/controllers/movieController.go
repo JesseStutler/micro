@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"github.com/JesseStutler/micro/movies/common"
+	"github.com/JesseStutler/micro/movies/data"
 	"github.com/gorilla/mux"
-	"github.com/mmorejon/cinema/movies/common"
-	"github.com/mmorejon/cinema/movies/data"
 	"gopkg.in/mgo.v2"
 )
 

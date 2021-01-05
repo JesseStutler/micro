@@ -1,8 +1,8 @@
 package routers
 
 import (
+	"github.com/JesseStutler/micro/showtimes/controllers"
 	"github.com/gorilla/mux"
-	"github.com/mmorejon/cinema/showtimes/controllers"
 )
 
 func SetShowTimeRouters(router *mux.Router) *mux.Router {

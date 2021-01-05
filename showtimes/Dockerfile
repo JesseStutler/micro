@@ -7,6 +7,7 @@ WORKDIR /opt/app/
 COPY go.mod .
 COPY go.sum .
 # fetch dependancies
+RUN go env -w GO111MODULE=on && go env -w GOPROXY=https://goproxy.cn
 RUN go mod download
 RUN go mod verify
 # copy the source code as the last step

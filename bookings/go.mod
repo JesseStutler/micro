@@ -1,4 +1,4 @@
-module github.com/mmorejon/cinema/bookings
+module github.com/JesseStutler/micro/bookings
 
 go 1.15
 

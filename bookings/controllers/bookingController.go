@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/mmorejon/cinema/bookings/common"
-	"github.com/mmorejon/cinema/bookings/data"
+	"github.com/JesseStutler/micro/bookings/common"
+	"github.com/JesseStutler/micro/bookings/data"
 )
 
 // Handler for HTTP Post - "/bookins"

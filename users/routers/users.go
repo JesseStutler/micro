@@ -1,8 +1,8 @@
 package routers
 
 import (
+	"github.com/JesseStutler/micro/users/controllers"
 	"github.com/gorilla/mux"
-	"github.com/mmorejon/cinema/users/controllers"
 )
 
 func SetUsersRouters(router *mux.Router) *mux.Router {

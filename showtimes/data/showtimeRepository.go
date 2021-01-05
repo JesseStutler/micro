@@ -3,7 +3,7 @@ package data
 import (
 	"time"
 
-	"github.com/mmorejon/cinema/showtimes/models"
+	"github.com/JesseStutler/micro/showtimes/models"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )

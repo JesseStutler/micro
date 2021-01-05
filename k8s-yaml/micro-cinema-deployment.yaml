@@ -1,0 +1,101 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro-cinema-users
+  labels:
+    micro: users
+spec:
+  selector:
+    matchLabels:
+      micro: users
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        micro: users
+    spec:
+      containers:
+        - name: users
+          image: jessestutler/cinema:users
+          ports:
+            - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro-cinema-movies
+  labels:
+    micro: movies
+spec:
+  selector:
+    matchLabels:
+      micro: movies
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        micro: movies
+    spec:
+      containers:
+        - name: movies
+          image: jessestutler/cinema:movies
+          ports:
+            - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro-cinema-bookings
+  labels:
+    micro: bookings
+spec:
+  selector:
+    matchLabels:
+      micro: bookings
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        micro: bookings
+    spec:
+      containers:
+        - name: bookings
+          image: jessestutler/cinema:bookings
+          ports:
+            - containerPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: micro-cinema-showtimes
+  labels:
+    micro: showtimes
+spec:
+  selector:
+    matchLabels:
+      micro: showtimes
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        micro: showtimes
+    spec:
+      containers:
+        - name: showtimes
+          image: jessestutler/cinema:showtimes
+          ports:
+            - containerPort: 8080
+  
+  
+  
+  
+  
+

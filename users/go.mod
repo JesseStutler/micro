@@ -1,4 +1,4 @@
-module github.com/mmorejon/cinema/users
+module github.com/JesseStutler/micro/users
 
 go 1.15
 

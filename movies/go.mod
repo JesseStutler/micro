@@ -1,4 +1,4 @@
-module github.com/mmorejon/cinema/movies
+module github.com/JesseStutler/micro/movies
 
 go 1.15
 

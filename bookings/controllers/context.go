@@ -3,7 +3,7 @@ package controllers
 import (
 	"gopkg.in/mgo.v2"
 
-	"github.com/mmorejon/cinema/bookings/common"
+	"github.com/JesseStutler/micro/bookings/common"
 )
 
 // Struct used for maintaining HTTP Request Context

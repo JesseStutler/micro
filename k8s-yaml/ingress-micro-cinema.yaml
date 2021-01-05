@@ -1,0 +1,40 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik-micro-cinema
+spec:
+  rules:
+  - host: showtimes.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: micro-cinema-showtimes
+          servicePort: 80
+  - host: bookings.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: micro-cinema-bookings
+          servicePort: 80
+  - host: movies.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: micro-cinema-movies
+          servicePort: 80
+  - host: users.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: micro-cinema-users
+          servicePort: 80
+        
+
+
+          
+
+

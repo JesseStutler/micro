@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  labels:
+    micro: mongo
+spec:
+  ports:
+  - port: 27017
+    name: mongo-service
+  clusterIP: None
+  selector:
+    micro: mongo
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: micro-cinema-mongo
+  labels:
+    micro: mongo
+spec:
+  selector:
+    matchLabels:
+      micro: mongo
+  replicas: 1
+  serviceName: mongo-service
+  template:
+    metadata:
+      labels:
+        micro: mongo
+    spec:
+      volumes:
+        - name: mongo-db-volume
+          persistentVolumeClaim:
+            claimName: csi-pvc-cinderplugin
+      containers:
+        - name: mongo
+          image: 'mongo:4.4'
+          ports:
+            - name: mongo
+              containerPort: 27017
+              protocol: TCP
+          volumeMounts:
+            - name: mongo-db-volume
+              mountPath: /backup

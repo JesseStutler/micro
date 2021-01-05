@@ -1,8 +1,8 @@
 package routers
 
 import (
+	"github.com/JesseStutler/micro/bookings/controllers"
 	"github.com/gorilla/mux"
-	"github.com/mmorejon/cinema/bookings/controllers"
 )
 
 func SetBookingsRouters(router *mux.Router) *mux.Router {

@@ -1,4 +1,4 @@
-module github.com/mmorejon/cinema/showtimes
+module github.com/JesseStutler/micro/showtimes
 
 go 1.15
 

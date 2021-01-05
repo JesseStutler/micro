@@ -7,22 +7,22 @@ WORKDIR /opt/app/
 COPY go.mod .
 COPY go.sum .
 # fetch dependancies
+RUN go env -w GO111MODULE=on && go env -w GOPROXY=https://goproxy.cn
 RUN go mod download
 RUN go mod verify
 # copy the source code as the last step
 COPY . .
 # build binary
-RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -a -installsuffix cgo -o /go/bin/cinema-bookins .
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -a -installsuffix cgo -o /go/bin/cinema-bookings .
 
 
 # build a small image
 FROM alpine:3.12.3
 LABEL language="golang"
-LABEL org.opencontainers.image.source https://github.com/mmorejon/microservices-docker-go-mongodb
 # import the user and group files from the builder.
 COPY --from=builder /etc/passwd /etc/passwd
 # copy the static executable
-COPY --from=builder --chown=elf:1000 /go/bin/cinema-bookins /cinema-bookins
+COPY --from=builder --chown=elf:1000 /go/bin/cinema-bookings /cinema-bookings
 # copy default config file
 COPY --chown=elf:1000 common/config.json /common/config.json
 # use an unprivileged user.
@@ -30,4 +30,4 @@ USER elf
 # service listens on port 8080.
 EXPOSE 8080
 # run app
-ENTRYPOINT ["./cinema-bookins"]
+ENTRYPOINT ["./cinema-bookings"]

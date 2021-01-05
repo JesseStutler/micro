@@ -1,8 +1,8 @@
 package routers
 
 import (
+	"github.com/JesseStutler/micro/movies/controllers"
 	"github.com/gorilla/mux"
-	"github.com/mmorejon/cinema/movies/controllers"
 )
 
 func setMovieRouters(router *mux.Router) *mux.Router {
